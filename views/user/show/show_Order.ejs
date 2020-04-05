@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head><title>Your Orders</title></head>
+<body>
+  
+        <h4 class="card-title">Your Order</h4>
+          <table border='1'>
+            <thead>
+              <tr>
+                <th>
+                  Product Image
+                </th>
+                <th>
+                  Title
+                </th>
+                <th>
+                  Price
+                </th>
+                <th>
+                  Delete Product
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i=0; i < Products.length; i++) { %>
+                <% Products[i].data.forEach(data1=>{ %>
+          <tr>
+              <td>
+                <img src="/<%= data1.image %>" alt="an image" >
+              </td> 
+              <td>
+                <%= data1.title %>
+              </td>
+              <td>
+                <%= data1.price %>
+              </td>
+               <td>    
+                <form action='/delete_from_Order?goodiesid=<%= data1._id %>' method="post">
+                  <button>Delete Product</button>
+                </form>      
+                <!--<a class="btn btn-info" href="/delete_Goodies?goodiesid=<%= Products[i]._id %>">Delete Product</a>-->
+              </td>
+            </tr>
+            <% })}%>
+          </tbody>
+          </table>
+</body>
+</html>

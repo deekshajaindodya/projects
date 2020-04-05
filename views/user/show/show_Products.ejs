@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+<body>
+    <main>
+        
+            <div class="flex-container">
+                <% for(let i=0;i < Products.length; i++) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                <%= Products[i].title %>
+                            </h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="/<%= Products[i].image %>" alt="<%= Products[i].title  %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">Rs.
+                                <%= Products[i].price %>
+                            </h2>
+                            <p class="product__description">
+                                <%= Products[i].description %>
+                            </p>
+                        </div>
+                         
+                        <div class="card__actions">
+                            <form action='/show_Products?goodiesid=<%= Products[i]._id %>' method="post">
+                                <button class="btn btn-info">Order Now</button>
+                              </form>
+                           
+                        </div>
+                    </article>
+                    <% } %>
+            </div>
+            
+    </main>
+</body>
+</html>
